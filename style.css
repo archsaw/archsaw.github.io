@@ -26,11 +26,7 @@ body {
     color: var(--text-color);
     min-height: 100vh;
     padding: 40px 20px;
-    background: #000000;
-    background-image: 
-        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-    background-size: 50px 50px;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0d0d1a 100%);
     position: relative;
     display: flex;
     justify-content: center;
@@ -204,7 +200,7 @@ li a {
     font-size: 18px;
     font-weight: 600;
     text-decoration: none;
-    border-radius: 6px;
+    border-radius: 25px;
     transition: all 0.3s ease;
     color: #e0e0e0;
     background: #1a1a1a;
