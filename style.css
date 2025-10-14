@@ -1,0 +1,206 @@
+/* =======================
+ *   Root Variables
+ *   ======================= */
+:root {
+    --text-color: #111111;
+    --heading-color: #111111;
+    --link-color: #1a73e8;
+    --link-hover-color: #1558b0;
+    --font-stack: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* =======================
+ *   Global Reset
+ *   ======================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* =======================
+ *   Body with Animated Background + Stars
+ *   ======================= */
+body {
+    font-family: var(--font-stack);
+    color: var(--text-color);
+    min-height: 100vh;
+    padding: 40px 20px;
+    background: linear-gradient(-60deg, #5a00c3, #a600ff, #3a0080, #1a0033);
+    background-size: 600% 600%;
+    animation: gradientBG 12s ease infinite;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* Gradient Animation */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Stars */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: transparent;
+    box-shadow:
+    50px 80px white,
+    200px 150px white,
+    400px 300px white,
+    600px 500px white,
+    800px 200px white,
+    1000px 450px white,
+    1200px 600px white,
+    1400px 350px white,
+    1600px 100px white,
+    1800px 500px white;
+    animation: stars 50s linear infinite;
+    z-index: 0;
+}
+
+@keyframes stars {
+    0% { transform: translate(0,0); }
+    100% { transform: translate(-800px, 0); }
+}
+
+/* =======================
+ *   Floating Cards (Main + Contact)
+ *   ======================= */
+.card,
+.contact-card {
+    position: relative;
+    z-index: 1;
+    background-color: #ffffff; /* white background */
+    color: #111;
+    border-radius: 15px;
+    padding: 30px 40px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover,
+.contact-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.2);
+}
+
+/* =======================
+ *   Headings and Links
+ *   ======================= */
+h1, h2 {
+    color: var(--heading-color);
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--link-hover-color);
+    text-decoration: underline;
+}
+
+/* =======================
+ *   Spacer for Main Page
+ *   ======================= */
+.spacer {
+    flex-grow: 1;
+}
+
+/* =======================
+ *   Contact Card Form
+ *   ======================= */
+.contact-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* spacing between fields */
+}
+
+.contact-card input,
+.contact-card textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1em;
+    outline: none;
+    width: 100%;
+}
+
+.contact-card input::placeholder,
+.contact-card textarea::placeholder {
+    color: #888;
+}
+
+.contact-card button {
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background-color: #a64ca6;
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.contact-card button:hover {
+    background-color: #ff66ff;
+    transform: scale(1.05);
+}
+
+/* =======================
+ *   Social Icons
+ *   ======================= */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-icons a {
+    background: rgba(0,0,0,0.05);
+    color: #111;
+    padding: 10px 14px;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2);
+    background: #a64ca6;
+    color: #fff;
+}
+
+/* =======================
+ *   Responsive
+ *   ======================= */
+@media (max-width: 600px) {
+    .card, .contact-card {
+        padding: 25px 20px;
+    }
+}
