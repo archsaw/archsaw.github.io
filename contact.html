@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Me - Chainsaw Coding</title>
+  <link rel="icon" type="image/png" href="images/purple.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<section id="contact" style="width: 100%; display: flex; justify-content: center; align-items: center; min-height: 100vh;">
+  <div class="contact-card">
+    <h2>Contact Me</h2>
+    <p>Have a question or want to work together? Reach out below!</p>
+
+    <form id="contactForm" style="margin-bottom: 20px;">
+      <input type="text" id="firstName" placeholder="First Name" required>
+      <input type="text" id="lastName" placeholder="Last Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Generate Email</button>
+    </form>
+
+    <p id="formMessage" style="display: none; margin: 15px 0; padding: 10px; background: #f0f0f0; border-radius: 8px; font-size: 0.95rem;"></p>
+    <p style="margin-top: 20px;"><a href="index.html">← Back to Home</a></p>
+  </div>
+</section>
+
+<script>
+  document.getElementById('contactForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    const subject = `New message from ${firstName} ${lastName}`;
+    const body = `Name: ${firstName} ${lastName}\nEmail: ${email}\n\nMessage:\n${message}`;
+    const mailtoLink = `mailto:chainsawapparel@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    const formMessage = document.getElementById('formMessage');
+    formMessage.innerHTML = `
+      <strong>Click below to send via email:</strong><br><br>
+      <a href="${mailtoLink}" style="display: inline-block; padding: 10px 20px; background: #a64ca6; color: white; border-radius: 8px; text-decoration: none; font-weight: 600;">Send Message via Email</a>
+    `;
+    formMessage.style.display = 'block';
+  });
+</script>
+</body>
+</html>
