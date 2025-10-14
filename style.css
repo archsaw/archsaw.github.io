@@ -345,7 +345,7 @@ p a, .nav-button {
     display: inline-block;
     padding: 12px 28px;
     margin: 4px 0;
-    border-radius: 8px;
+    border-radius: 20px;
     background: rgba(26, 26, 26, 0.9);
     border: 1px solid #444444;
     color: #e0e0e0;
