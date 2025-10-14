@@ -26,7 +26,7 @@ body {
     color: var(--text-color);
     min-height: 100vh;
     padding: 40px 20px;
-    background: linear-gradient(-60deg, #5a00c3, #a600ff, #3a0080, #1a0033);
+    background: linear-gradient(-60deg, #000000, #1a1a1a, #0d0d0d, #333333);
     background-size: 600% 600%;
     animation: gradientBG 12s ease infinite;
     position: relative;
