@@ -345,15 +345,15 @@ p a, .nav-button {
     display: inline-block;
     padding: 12px 28px;
     margin: 4px 0;
-    border-radius: 0px;
-    background: rgba(26, 26, 26, 0.7);
-    border: 1px solid #333333;
+    border-radius: 8px;
+    background: rgba(26, 26, 26, 0.9);
+    border: 1px solid #444444;
     color: #e0e0e0;
 }
 
 p a:hover, .nav-button:hover {
-    background: rgba(37, 37, 37, 0.8);
-    border-color: #555555;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+    background: rgba(37, 37, 37, 0.95);
+    border-color: #666666;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
     text-decoration: none;
 }
