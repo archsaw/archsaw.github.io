@@ -19,18 +19,14 @@
 }
 
 /* =======================
- *   Body - Pure Black with Subtle Grid
+ *   Body - Sleek Matte Grey
  *   ======================= */
 body {
     font-family: var(--font-stack);
     color: var(--text-color);
     min-height: 100vh;
     padding: 40px 20px;
-    background: #000000;
-    background-image: 
-        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-    background-size: 50px 50px;
+    background-color: #1e1e1e; /* Sleek matte grey */
     position: relative;
     display: flex;
     justify-content: center;
@@ -357,3 +353,4 @@ p a:hover, .nav-button:hover {
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
     text-decoration: none;
 }
+
