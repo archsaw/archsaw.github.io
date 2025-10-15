@@ -19,7 +19,7 @@
 }
 
 /* =======================
- *   Body - Animated Gradient
+ *   Body - Animated Gradient + Stars
  *   ======================= */
 body {
     font-family: var(--font-stack);
@@ -32,19 +32,45 @@ body {
     background: linear-gradient(-45deg, #1e1e1e, #2a2a2a, #1e1e1e, #0f0f0f);
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
+    position: relative;
+    overflow-x: hidden;
 }
 
 /* Animate the gradient */
 @keyframes gradientBG {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Stars overlay */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: transparent;
+    box-shadow:
+        50px 80px white,
+        200px 150px white,
+        400px 300px white,
+        600px 500px white,
+        800px 200px white,
+        1000px 450px white,
+        1200px 600px white,
+        1400px 350px white,
+        1600px 100px white,
+        1800px 500px white;
+    animation: stars 60s linear infinite;
+    z-index: 0;
+}
+
+@keyframes stars {
+    0% { transform: translate(0,0); opacity: 0.9; }
+    50% { opacity: 0.5; }
+    100% { transform: translate(-800px, 0); opacity: 0.9; }
 }
 
 /* =======================
@@ -82,13 +108,8 @@ h1, h2 {
     font-weight: 600;
 }
 
-h1 {
-    font-size: 2.5rem;
-}
-
-h2 {
-    font-size: 1.5rem;
-}
+h1 { font-size: 2.5rem; }
+h2 { font-size: 1.5rem; }
 
 p {
     font-size: 1.1rem;
@@ -112,9 +133,7 @@ a:hover {
 /* =======================
  *   Spacer for Main Page
  *   ======================= */
-.spacer {
-    flex-grow: 1;
-}
+.spacer { flex-grow: 1; }
 
 /* =======================
  *   Contact Card Form
@@ -139,14 +158,10 @@ a:hover {
 }
 
 .contact-card input::placeholder,
-.contact-card textarea::placeholder {
-    color: #555555;
-}
+.contact-card textarea::placeholder { color: #555555; }
 
 .contact-card input:focus,
-.contact-card textarea:focus {
-    border-color: #555555;
-}
+.contact-card textarea:focus { border-color: #555555; }
 
 .contact-card button {
     padding: 12px;
@@ -197,14 +212,9 @@ a:hover {
 /* =======================
  *   Links List (for socials, projects, etc)
  *   ======================= */
-ul {
-    list-style: none;
-    margin-bottom: 30px;
-}
+ul { list-style: none; margin-bottom: 30px; }
 
-li {
-    margin-bottom: 12px;
-}
+li { margin-bottom: 12px; }
 
 li a {
     display: block;
@@ -227,7 +237,7 @@ li a:hover {
     background: #252525;
 }
 
-/* Gradient variations for different list items */
+/* Gradient variations for list items */
 li:nth-child(1) a:hover { border-color: #0061FF; box-shadow: 0 0 15px rgba(0, 97, 255, 0.2); }
 li:nth-child(2) a:hover { border-color: #34A853; box-shadow: 0 0 15px rgba(52, 168, 83, 0.2); }
 li:nth-child(3) a:hover { border-color: #FF6F00; box-shadow: 0 0 15px rgba(255, 111, 0, 0.2); }
@@ -267,4 +277,3 @@ p a:hover, .nav-button:hover {
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
     text-decoration: none;
 }
-
