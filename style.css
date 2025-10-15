@@ -19,7 +19,7 @@
 }
 
 /* =======================
- *   Body - Animated Gradient + Stars
+ *   Body - Animated Gradient + Twinkling Stars
  *   ======================= */
 body {
     font-family: var(--font-stack);
@@ -43,15 +43,14 @@ body {
     100% { background-position: 0% 50%; }
 }
 
-/* Stars overlay */
+/* Twinkling Stars */
 body::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 200%;
+    top: 0; left: 0;
+    width: 200%; height: 200%;
     background: transparent;
+    z-index: 0;
     box-shadow:
         50px 80px white,
         200px 150px white,
@@ -63,14 +62,41 @@ body::before {
         1400px 350px white,
         1600px 100px white,
         1800px 500px white;
-    animation: stars 60s linear infinite;
-    z-index: 0;
+    animation: moveStars 60s linear infinite;
 }
 
-@keyframes stars {
-    0% { transform: translate(0,0); opacity: 0.9; }
-    50% { opacity: 0.5; }
-    100% { transform: translate(-800px, 0); opacity: 0.9; }
+@keyframes moveStars {
+    0% { transform: translate(0,0); }
+    100% { transform: translate(-800px, 0); }
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 200%; height: 200%;
+    background: transparent;
+    z-index: 0;
+    box-shadow:
+        50px 80px white,
+        200px 150px white,
+        400px 300px white,
+        600px 500px white,
+        800px 200px white,
+        1000px 450px white,
+        1200px 600px white,
+        1400px 350px white,
+        1600px 100px white,
+        1800px 500px white;
+    animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.2; }
+    25% { opacity: 0.5; }
+    50% { opacity: 0.8; }
+    75% { opacity: 0.4; }
+    100% { opacity: 1; }
 }
 
 /* =======================
@@ -213,7 +239,6 @@ a:hover {
  *   Links List (for socials, projects, etc)
  *   ======================= */
 ul { list-style: none; margin-bottom: 30px; }
-
 li { margin-bottom: 12px; }
 
 li a {
@@ -237,7 +262,7 @@ li a:hover {
     background: #252525;
 }
 
-/* Gradient variations for list items */
+/* Gradient variations for different list items */
 li:nth-child(1) a:hover { border-color: #0061FF; box-shadow: 0 0 15px rgba(0, 97, 255, 0.2); }
 li:nth-child(2) a:hover { border-color: #34A853; box-shadow: 0 0 15px rgba(52, 168, 83, 0.2); }
 li:nth-child(3) a:hover { border-color: #FF6F00; box-shadow: 0 0 15px rgba(255, 111, 0, 0.2); }
