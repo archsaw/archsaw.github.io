@@ -1,20 +1,55 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chainsaw Coding - Projects</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GitHub Repositories UI</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="card">
-    <h1>My Projects</h1>
-    <ul>
-      <li><a href="osdownload.html">archsawOS (wip)</a></li>
-      <li><a href="gitprojects.html">Github Projects</a></li>
-    </ul>
-    <p><a href="index.html">Back to Home</a></p>
-  </div>
+
+<h1>My GitHub Repositories</h1>
+<div class="repo-grid" id="repoGrid">
+  <!-- Repositories will render here -->
+</div>
+
+<footer>Data from GitHub API</footer>
+
+<script>
+// Replace with your username
+const username = "octocat";
+
+async function loadRepos() {
+  const grid = document.getElementById("repoGrid");
+  grid.innerHTML = "<p>Loading repositories…</p>";
+  try {
+    const res = await fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=updated`);
+    if (!res.ok) throw new Error("GitHub API rate limited or user not found");
+    const data = await res.json();
+    grid.innerHTML = "";
+    data.forEach(repo=>{
+      const card = document.createElement("article");
+      card.className = "repo";
+      card.innerHTML = `
+        <h2>${repo.name}</h2>
+        <p class="desc">${repo.description ?? "No description provided."}</p>
+        <div class="stats">
+          <span class="lang">${repo.language ?? "Unknown"}</span>
+          <span>★ ${repo.stargazers_count}</span>
+          <span>⑂ ${repo.forks_count}</span>
+          <span>⚠ ${repo.open_issues_count}</span>
+          <span>🕒 Updated ${new Date(repo.updated_at).toLocaleDateString()}</span>
+        </div>
+        <a class="btn" href="${repo.html_url}" target="_blank" rel="noopener">Open on GitHub</a>
+      `;
+      grid.appendChild(card);
+    });
+  } catch (err) {
+    grid.innerHTML = `<p style="color:var(--muted)">Error: ${err.message}</p>`;
+  }
+}
+
+loadRepos();
+</script>
 </body>
 </html>
