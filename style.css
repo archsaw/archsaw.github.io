@@ -1,4 +1,6 @@
-/* Root Variables */
+/* =======================
+ *   Root Variables
+ *   ======================= */
 :root {
     --text-color: #e0e0e0;
     --heading-color: #ffffff;
@@ -7,14 +9,18 @@
     --font-stack: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* Global Reset */
+/* =======================
+ *   Global Reset
+ *   ======================= */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* Body */
+/* =======================
+ *   Body - Pure Black with Subtle Grid
+ *   ======================= */
 body {
     font-family: var(--font-stack);
     color: var(--text-color);
@@ -25,88 +31,329 @@ body {
         linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
     background-size: 50px 50px;
+    position: relative;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
+    overflow-x: hidden;
 }
 
-/* Heading */
-h1 {
-    font-size: 2.5rem;
-    color: var(--heading-color);
-    margin-bottom: 40px;
-}
-
-/* Cards Container */
-.cards-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-    width: 100%;
-    max-width: 1200px;
-}
-
-/* Card Styles */
-.card {
+/* =======================
+ *   Floating Cards (Main + Contact)
+ *   ======================= */
+.card,
+.contact-card {
+    position: relative;
+    z-index: 1;
     background-color: #0a0a0a;
-    color: var(--text-color);
+    color: #e0e0e0;
     border: 1px solid #222222;
     border-radius: 8px;
-    padding: 25px 30px;
-    text-align: left;
+    padding: 30px 40px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
     box-shadow: 0 0 30px rgba(0,0,0,0.5);
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.card:hover {
+.card:hover,
+.contact-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 0 40px rgba(255,255,255,0.1);
     border-color: #333333;
 }
 
-.card h2 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
+/* =======================
+ *   Headings and Links
+ *   ======================= */
+h1, h2 {
     color: var(--heading-color);
+    margin-bottom: 20px;
+    font-weight: 600;
 }
 
-.card p {
-    font-size: 1rem;
-    margin-bottom: 10px;
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    line-height: 1.6;
     color: #a0a0a0;
 }
 
-/* Button/Link */
-.nav-button {
-    display: inline-block;
-    padding: 10px 20px;
-    border-radius: 8px;
-    background: rgba(26,26,26,0.9);
-    border: 1px solid #444444;
-    color: var(--text-color);
-    font-weight: 600;
+a {
+    color: var(--link-color);
     text-decoration: none;
+    font-weight: 500;
     transition: all 0.3s ease;
 }
 
-.nav-button:hover {
-    background: rgba(37,37,37,0.95);
-    border-color: #666666;
-    box-shadow: 0 0 15px rgba(255,255,255,0.1);
+a:hover {
+    color: var(--link-hover-color);
+    text-decoration: underline;
 }
 
-/* Responsive */
+/* =======================
+ *   Spacer for Main Page
+ *   ======================= */
+.spacer {
+    flex-grow: 1;
+}
+
+/* =======================
+ *   Contact Card Form
+ *   ======================= */
+.contact-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-card input,
+.contact-card textarea {
+    padding: 12px;
+    border: 1px solid #333333;
+    border-radius: 6px;
+    font-size: 1em;
+    outline: none;
+    width: 100%;
+    background-color: #0f0f0f;
+    color: #e0e0e0;
+    transition: border-color 0.3s ease;
+}
+
+.contact-card input::placeholder,
+.contact-card textarea::placeholder {
+    color: #555555;
+}
+
+.contact-card input:focus,
+.contact-card textarea:focus {
+    border-color: #555555;
+}
+
+.contact-card button {
+    padding: 12px;
+    border: 1px solid #444444;
+    border-radius: 6px;
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    font-size: 1em;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+    font-weight: 600;
+}
+
+.contact-card button:hover {
+    background-color: #2a2a2a;
+    border-color: #666666;
+    transform: scale(1.02);
+}
+
+/* =======================
+ *   Social Icons
+ *   ======================= */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-icons a {
+    background: transparent;
+    color: #a0a0a0;
+    padding: 10px 14px;
+    border-radius: 50%;
+    border: 1px solid #333333;
+    text-decoration: none;
+    transition: transform 0.3s, background 0.3s, border-color 0.3s;
+}
+
+.social-icons a:hover {
+    transform: scale(1.1);
+    background: #1a1a1a;
+    border-color: #666666;
+    color: #ffffff;
+}
+
+/* =======================
+ *   Links List (for socials, projects, etc)
+ *   ======================= */
+ul {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+li {
+    margin-bottom: 12px;
+}
+
+li a {
+    display: block;
+    padding: 16px 24px;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 0px;
+    transition: all 0.3s ease;
+    color: #e0e0e0;
+    background: #1a1a1a;
+    border: 1px solid #333333;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+li a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255,255,255,0.05);
+    border-color: #555555;
+    background: #252525;
+}
+
+li a {
+    border: 1px solid #333333;
+}
+
+/* Gradient variations for different list items */
+li:nth-child(1) a {
+    background: #1a1a1a;
+    border: 1px solid #333333;
+}
+
+li:nth-child(1) a:hover {
+    background: #252525;
+    border-color: #0061FF;
+    box-shadow: 0 0 15px rgba(0, 97, 255, 0.2);
+}
+    
+li:nth-child(2) a {
+    background: #1a1a1a;
+    border: 1px solid #333333;
+}
+
+li:nth-child(2) a:hover {
+    background: #252525;
+    border-color: #34A853;
+    box-shadow: 0 0 15px rgba(52, 168, 83, 0.2);
+}
+    
+li:nth-child(3) a {
+    background: #1a1a1a;
+    border: 1px solid #333333;
+}
+
+li:nth-child(3) a:hover {
+    background: #252525;
+    border-color: #FF6F00;
+    box-shadow: 0 0 15px rgba(255, 111, 0, 0.2);
+}
+    
+li:nth-child(4) a {
+    background: #1a1a1a;
+    border: 1px solid #333333;
+}
+
+li:nth-child(4) a:hover {
+    background: #252525;
+    border-color: #D32F2F;
+    box-shadow: 0 0 15px rgba(211, 47, 47, 0.2);
+}
+
+li:nth-child(5) a {
+    background: #1a1a1a;
+    border: 1px solid #333333;
+}
+
+li:nth-child(5) a:hover {
+    background: #252525;
+    border-color: #666666;
+    box-shadow: 0 0 15px rgba(100, 100, 100, 0.2);
+}
+
+li:nth-child(6) a {
+    background: #1a1a1a;
+    border: 1px solid #333333;
+}
+
+li:nth-child(6) a:hover {
+    background: #252525;
+    border-color: #667eea;
+    box-shadow: 0 0 15px rgba(102, 126, 234, 0.2);
+}
+
+li:nth-child(7) a {
+    background: #1a1a1a;
+    border: 1px solid #333333;
+}
+
+li:nth-child(7) a:hover {
+    background: #252525;
+    border-color: #5865F2;
+    box-shadow: 0 0 15px rgba(88, 101, 242, 0.2);
+}
+
+li:nth-child(8) a {
+    background: #1a1a1a;
+    border: 1px solid #333333;
+}
+
+li:nth-child(8) a:hover {
+    background: #252525;
+    border-color: #FF1744;
+    box-shadow: 0 0 15px rgba(255, 23, 68, 0.2);
+}
+
+/* =======================
+ *   Responsive
+ *   ======================= */
 @media (max-width: 600px) {
-    .card {
-        padding: 20px 15px;
+    .card, .contact-card {
+        padding: 25px 20px;
+    }
+
+    body {
+        background-size: 40px 40px;
     }
 
     h1 {
         font-size: 2rem;
     }
 
-    .card h2 {
+    h2 {
         font-size: 1.2rem;
     }
+
+    li a {
+        padding: 14px 20px;
+        font-size: 16px;
+    }
+}
+
+/* =======================
+ *   Homepage Links (p a tags)
+ *   ======================= */
+p a, .nav-button {
+    display: inline-block;
+    padding: 12px 28px;
+    margin: 4px 0;
+    border-radius: 14px;
+    background: rgba(26, 26, 26, 0.9);
+    border: 1px solid #444444;
+    color: #e0e0e0;
+}
+
+p a:hover, .nav-button:hover {
+    background: rgba(37, 37, 37, 0.95);
+    border-color: #666666;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    text-decoration: none;
 }
