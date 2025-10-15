@@ -19,20 +19,32 @@
 }
 
 /* =======================
- *   Body - Sleek Matte Grey
+ *   Body - Animated Gradient
  *   ======================= */
 body {
     font-family: var(--font-stack);
     color: var(--text-color);
     min-height: 100vh;
     padding: 40px 20px;
-    background-color: #1e1e1e; /* Sleek matte grey */
-    position: relative;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    overflow-x: hidden;
+    align-items: center;
+    background: linear-gradient(-45deg, #1e1e1e, #2a2a2a, #1e1e1e, #0f0f0f);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+/* Animate the gradient */
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 /* =======================
@@ -255,3 +267,4 @@ p a:hover, .nav-button:hover {
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
     text-decoration: none;
 }
+
