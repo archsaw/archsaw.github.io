@@ -221,3 +221,76 @@ p a:hover, .nav-button:hover {
     h2 { font-size: 1.2rem; }
     li a { padding: 14px 20px; font-size: 16px; }
 }
+/* =======================
+ *   Contact Form Styling
+ *   ======================= */
+form input,
+form textarea {
+    width: 100%;
+    margin: 8px 0;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    background: #111;
+    color: #e0e0e0;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+form input:focus,
+form textarea:focus {
+    border-color: #a64ca6;
+    box-shadow: 0 0 8px rgba(166, 76, 166, 0.4);
+}
+
+form button {
+    width: 100%;
+    padding: 12px 0;
+    background: #a64ca6;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+form button:hover {
+    background: #bb6abb;
+    box-shadow: 0 0 12px rgba(166, 76, 166, 0.4);
+}
+.contact-card:hover {
+    box-shadow: 0 25px 60px rgba(166, 76, 166, 0.15);
+}
+#formMessage {
+    background: rgba(26, 26, 26, 0.9);
+    border: 1px solid #333;
+    color: #dcdcdc;
+    border-radius: 10px;
+    padding: 15px;
+    line-height: 1.6;
+    animation: fadeIn 0.4s ease;
+}
+
+#formMessage a {
+    background: #a64ca6;
+    padding: 8px 18px;
+    border-radius: 6px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+#formMessage a:hover {
+    background: #bb6abb;
+    box-shadow: 0 0 8px rgba(166, 76, 166, 0.4);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
