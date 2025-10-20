@@ -2,7 +2,6 @@
  *  Animated Stars Background
  *  stars.css
  *  ======================= */
-
 /* Stars Background Layers */
 .stars, .stars2, .stars3 {
   position: absolute;
@@ -15,7 +14,6 @@
   overflow: hidden;
   pointer-events: none;
 }
-
 .stars::after,
 .stars2::after,
 .stars3::after {
@@ -25,102 +23,98 @@
   height: 200%;
   background: transparent;
 }
-
 /* Layer 1 - Bright, fast twinkling stars */
 .stars::after {
   box-shadow:
-    50px 80px #fff,
-    200px 150px #fff,
-    400px 300px #fff,
-    600px 500px #fff,
-    800px 200px #fff,
-    1000px 450px #fff,
-    1200px 600px #fff,
-    1400px 350px #fff,
-    1600px 100px #fff,
-    1800px 500px #fff,
-    150px 250px #fff,
-    350px 450px #fff,
-    550px 150px #fff,
-    750px 550px #fff,
-    950px 350px #fff,
-    1150px 200px #fff,
-    1350px 500px #fff,
-    1550px 400px #fff,
-    1750px 250px #fff,
-    1950px 150px #fff,
-    2100px 350px #fff,
-    2300px 200px #fff,
-    100px 600px #fff,
-    300px 50px #fff,
-    500px 650px #fff;
+    50px 80px 2px 1px #fff,
+    200px 150px 2px 1px #fff,
+    400px 300px 2px 1px #fff,
+    600px 500px 2px 1px #fff,
+    800px 200px 2px 1px #fff,
+    1000px 450px 2px 1px #fff,
+    1200px 600px 2px 1px #fff,
+    1400px 350px 2px 1px #fff,
+    1600px 100px 2px 1px #fff,
+    1800px 500px 2px 1px #fff,
+    150px 250px 2px 1px #fff,
+    350px 450px 2px 1px #fff,
+    550px 150px 2px 1px #fff,
+    750px 550px 2px 1px #fff,
+    950px 350px 2px 1px #fff,
+    1150px 200px 2px 1px #fff,
+    1350px 500px 2px 1px #fff,
+    1550px 400px 2px 1px #fff,
+    1750px 250px 2px 1px #fff,
+    1950px 150px 2px 1px #fff,
+    2100px 350px 2px 1px #fff,
+    2300px 200px 2px 1px #fff,
+    100px 600px 2px 1px #fff,
+    300px 50px 2px 1px #fff,
+    500px 650px 2px 1px #fff;
   animation: twinkle 2s infinite alternate;
 }
-
 /* Layer 2 - Medium brightness, slower twinkle */
 .stars2::after {
   box-shadow:
-    100px 120px #fff,
-    300px 200px #fff,
-    500px 400px #fff,
-    700px 550px #fff,
-    900px 250px #fff,
-    1100px 500px #fff,
-    1300px 650px #fff,
-    1500px 400px #fff,
-    1700px 150px #fff,
-    1900px 550px #fff,
-    250px 350px #fff,
-    450px 500px #fff,
-    650px 200px #fff,
-    850px 600px #fff,
-    1050px 400px #fff,
-    1250px 250px #fff,
-    1450px 550px #fff,
-    1650px 450px #fff,
-    1850px 300px #fff,
-    2050px 200px #fff,
-    2200px 400px #fff,
-    2400px 300px #fff,
-    125px 625px #fff,
-    325px 75px #fff,
-    525px 675px #fff;
+    100px 120px 2px 1px #fff,
+    300px 200px 2px 1px #fff,
+    500px 400px 2px 1px #fff,
+    700px 550px 2px 1px #fff,
+    900px 250px 2px 1px #fff,
+    1100px 500px 2px 1px #fff,
+    1300px 650px 2px 1px #fff,
+    1500px 400px 2px 1px #fff,
+    1700px 150px 2px 1px #fff,
+    1900px 550px 2px 1px #fff,
+    250px 350px 2px 1px #fff,
+    450px 500px 2px 1px #fff,
+    650px 200px 2px 1px #fff,
+    850px 600px 2px 1px #fff,
+    1050px 400px 2px 1px #fff,
+    1250px 250px 2px 1px #fff,
+    1450px 550px 2px 1px #fff,
+    1650px 450px 2px 1px #fff,
+    1850px 300px 2px 1px #fff,
+    2050px 200px 2px 1px #fff,
+    2200px 400px 2px 1px #fff,
+    2400px 300px 2px 1px #fff,
+    125px 625px 2px 1px #fff,
+    325px 75px 2px 1px #fff,
+    525px 675px 2px 1px #fff;
   animation: twinkle 3s infinite alternate;
   opacity: 0.6;
 }
-
 /* Layer 3 - Dim, slowest twinkle */
 .stars3::after {
   box-shadow:
-    75px 100px #fff,
-    275px 175px #fff,
-    475px 350px #fff,
-    675px 525px #fff,
-    875px 225px #fff,
-    1075px 475px #fff,
-    1275px 625px #fff,
-    1475px 375px #fff,
-    1675px 125px #fff,
-    1875px 525px #fff,
-    225px 325px #fff,
-    425px 475px #fff,
-    625px 175px #fff,
-    825px 575px #fff,
-    1025px 375px #fff,
-    1225px 225px #fff,
-    1425px 525px #fff,
-    1625px 425px #fff,
-    1825px 275px #fff,
-    2025px 175px #fff,
-    2175px 375px #fff,
-    2375px 275px #fff,
-    110px 610px #fff,
-    310px 60px #fff,
-    510px 660px #fff;
+    75px 100px 2px 1px #fff,
+    275px 175px 2px 1px #fff,
+    475px 350px 2px 1px #fff,
+    675px 525px 2px 1px #fff,
+    875px 225px 2px 1px #fff,
+    1075px 475px 2px 1px #fff,
+    1275px 625px 2px 1px #fff,
+    1475px 375px 2px 1px #fff,
+    1675px 125px 2px 1px #fff,
+    1875px 525px 2px 1px #fff,
+    225px 325px 2px 1px #fff,
+    425px 475px 2px 1px #fff,
+    625px 175px 2px 1px #fff,
+    825px 575px 2px 1px #fff,
+    1025px 375px 2px 1px #fff,
+    1225px 225px 2px 1px #fff,
+    1425px 525px 2px 1px #fff,
+    1625px 425px 2px 1px #fff,
+    1825px 275px 2px 1px #fff,
+    2025px 175px 2px 1px #fff,
+    2175px 375px 2px 1px #fff,
+    2375px 275px 2px 1px #fff,
+    110px 610px 2px 1px #fff,
+    310px 60px 2px 1px #fff,
+    510px 660px 2px 1px #fff;
   animation: twinkle 4s infinite alternate;
   opacity: 0.4;
 }
-
 /* Twinkle Animation */
 @keyframes twinkle {
   0% { opacity: 0.2; }
