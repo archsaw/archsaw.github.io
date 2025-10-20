@@ -240,29 +240,34 @@ form textarea {
 
 form input:focus,
 form textarea:focus {
-    border-color: #a64ca6;
-    box-shadow: 0 0 8px rgba(166, 76, 166, 0.4);
+    border-color: #888;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
 }
 
+/* Button */
 form button {
     width: 100%;
     padding: 12px 0;
-    background: #a64ca6;
+    background: rgba(255, 255, 255, 0.08);
     color: #fff;
     font-weight: 600;
-    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 form button:hover {
-    background: #bb6abb;
-    box-shadow: 0 0 12px rgba(166, 76, 166, 0.4);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
 }
+
+/* Card hover */
 .contact-card:hover {
-    box-shadow: 0 25px 60px rgba(166, 76, 166, 0.15);
+    box-shadow: 0 25px 60px rgba(255, 255, 255, 0.1);
 }
+
+/* Message box */
 #formMessage {
     background: rgba(26, 26, 26, 0.9);
     border: 1px solid #333;
@@ -273,8 +278,9 @@ form button:hover {
     animation: fadeIn 0.4s ease;
 }
 
+/* Link inside message box */
 #formMessage a {
-    background: #a64ca6;
+    background: rgba(255, 255, 255, 0.08);
     padding: 8px 18px;
     border-radius: 6px;
     color: #fff;
@@ -284,13 +290,14 @@ form button:hover {
 }
 
 #formMessage a:hover {
-    background: #bb6abb;
-    box-shadow: 0 0 8px rgba(166, 76, 166, 0.4);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
 }
 
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(5px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
 
 
