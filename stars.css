@@ -1,0 +1,53 @@
+/* =======================
+ *  Stars Background
+ *  ======================= */
+
+/* Base star layers container */
+.stars, .stars2, .stars3 {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  z-index: 0;
+  background: transparent;
+  overflow: hidden;
+}
+
+.stars::after,
+.stars2::after,
+.stars3::after {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: transparent;
+  box-shadow:
+      50px 80px #fff,
+      200px 150px #fff,
+      400px 300px #fff,
+      600px 500px #fff,
+      800px 200px #fff,
+      1000px 450px #fff,
+      1200px 600px #fff,
+      1400px 350px #fff,
+      1600px 100px #fff,
+      1800px 500px #fff;
+  animation: twinkle 2s infinite alternate;
+}
+
+.stars2::after {
+  animation-duration: 3s;
+  opacity: 0.6;
+}
+
+.stars3::after {
+  animation-duration: 4s;
+  opacity: 0.4;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
