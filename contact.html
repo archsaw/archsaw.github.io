@@ -1,52 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Me - Chainsaw Coding</title>
-  <link rel="icon" type="image/png" href="images/purple.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - Chainsaw Coding</title>
+
+  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+
+  <!-- External Stars CSS -->
+  <link rel="stylesheet" href="stars.css">
+
+  <style>
+    /* =======================
+       Base Styles
+       ======================= */
+    :root {
+      --bg-color: #0a0a0f;
+      --accent-color: #9b5de5;
+      --text-color: #e0e0e0;
+      --heading-color: #ffffff;
+      --font-stack: 'Inter', sans-serif;
+      --glow: 0 0 20px var(--accent-color), 0 0 40px var(--accent-color);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-stack);
+      min-height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      position: relative;
+    }
+
+    h1 {
+      color: var(--heading-color);
+      text-shadow: var(--glow);
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+
+    p {
+      max-width: 500px;
+      text-align: center;
+      color: #cfcfcf;
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+
+    form {
+      background: rgba(20, 20, 30, 0.8);
+      backdrop-filter: blur(12px);
+      border-radius: 15px;
+      padding: 2rem;
+      width: 100%;
+      max-width: 420px;
+      box-shadow: 0 0 20px rgba(155, 93, 229, 0.3);
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--accent-color);
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-color);
+      font-family: inherit;
+      transition: all 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      box-shadow: 0 0 10px var(--accent-color);
+    }
+
+    button {
+      width: 100%;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 10px;
+      background: var(--accent-color);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s ease;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+
+    button:hover {
+      box-shadow: var(--glow);
+      transform: scale(1.03);
+    }
+
+    .success {
+      margin-top: 1rem;
+      color: #8ef78e;
+      font-weight: 600;
+      display: none;
+      text-align: center;
+    }
+
+    .stars {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+  </style>
 </head>
 <body>
-<section id="contact" style="width: 100%; display: flex; justify-content: center; align-items: center; min-height: 100vh;">
-  <div class="contact-card">
-    <h2>Contact Me</h2>
-    <p>Have a question or want to work together? Reach out below!</p>
+  <div class="stars"></div>
 
-    <form id="contactForm" style="margin-bottom: 20px;">
-      <input type="text" id="firstName" placeholder="First Name" required>
-      <input type="text" id="lastName" placeholder="Last Name" required>
-      <input type="email" id="email" placeholder="Your Email" required>
-      <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">Generate Email</button>
-    </form>
+  <h1>Contact Me</h1>
+  <p>Got a question or idea? Drop me a message below and I’ll get back to you soon.</p>
 
-    <p id="formMessage" style="display: none; margin: 15px 0; padding: 10px; background: #f0f0f0; border-radius: 8px; font-size: 0.95rem;"></p>
-    <p style="margin-top: 20px;"><a href="index.html">← Back to Home</a></p>
-  </div>
-</section>
+  <form id="contact-form" action="https://formspree.io/f/mdkwpplr" method="POST">
+    <label for="first-name">First Name</label>
+    <input type="text" id="first-name" name="first-name" required>
 
-<script>
-  document.getElementById('contactForm').addEventListener('submit', (e) => {
-    e.preventDefault();
+    <label for="last-name">Last Name</label>
+    <input type="text" id="last-name" name="last-name" required>
 
-    const firstName = document.getElementById('firstName').value;
-    const lastName = document.getElementById('lastName').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
+    <label for="email">Email</label>
+    <input type="email" id="email" name="_replyto" required>
 
-    const subject = `New message from ${firstName} ${lastName}`;
-    const body = `Name: ${firstName} ${lastName}\nEmail: ${email}\n\nMessage:\n${message}`;
-    const mailtoLink = `mailto:chainsawapparel@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
 
-    const formMessage = document.getElementById('formMessage');
-    formMessage.innerHTML = `
-      <strong>Click below to send via email:</strong><br><br>
-      <a href="${mailtoLink}" style="display: inline-block; padding: 10px 20px; background: #a64ca6; color: white; border-radius: 8px; text-decoration: none; font-weight: 600;">Send Message via Email</a>
-    `;
-    formMessage.style.display = 'block';
-  });
-</script>
+    <button type="submit">Send Message</button>
+    <p class="success" id="success-msg">✅ Message sent successfully!</p>
+  </form>
+
+  <script>
+    // Simple form success message
+    const form = document.getElementById('contact-form');
+    const successMsg = document.getElementById('success-msg');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const res = await fetch(form.action, { method: 'POST', body: data });
+      if (res.ok) {
+        successMsg.style.display = 'block';
+        form.reset();
+      }
+    });
+  </script>
 </body>
 </html>
