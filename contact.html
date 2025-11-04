@@ -1,41 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact</title>
 
   <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <!-- Main CSS -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Star Layers -->
-  <div class="stars"></div>
-  <div class="stars2"></div>
-  <div class="stars3"></div>
 
   <div class="contact-card">
     <h1>Contact Me</h1>
     <p>Got a question, suggestion, or idea? Send a message below — I’ll get back to you as soon as possible.</p>
 
     <form id="contact-form" action="https://formspree.io/f/mdkwpplr" method="POST">
-      <input type="text" name="first-name" placeholder="First Name" required>
-      <input type="text" name="last-name" placeholder="Last Name" required>
-      <input type="email" name="_replyto" placeholder="Email" required>
+      <input type="text" name="first-name" placeholder="First Name" required />
+      <input type="text" name="last-name" placeholder="Last Name" required />
+      <input type="email" name="_replyto" placeholder="Email" required />
       <textarea name="message" rows="5" placeholder="Your Message..." required></textarea>
       <button type="submit">Send Message</button>
     </form>
-      <p><small><a href="socials.html">My Socials</a></small></p>
 
     <div id="formMessage" style="display:none;">
-      <p>✅ Your message has been sent successfully!</p>
+      <p>Your message has been sent successfully!</p>
       <a href="index.html">Go Back</a>
     </div>
   </div>
-  
+
+  <!-- Floating Socials Button -->
+  <a href="socials.html" class="floating-socials">My Socials</a>
+
   <script>
     const form = document.getElementById('contact-form');
     const formMessage = document.getElementById('formMessage');
@@ -43,10 +41,22 @@
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const data = new FormData(form);
-      const response = await fetch(form.action, { method: 'POST', body: data });
-      if (response.ok) {
-        form.style.display = 'none';
-        formMessage.style.display = 'block';
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          form.style.display = 'none';
+          formMessage.style.display = 'block';
+        } else {
+          alert('Something went wrong. Please try again later.');
+        }
+      } catch (error) {
+        alert('Network error — please check your connection.');
       }
     });
   </script>
