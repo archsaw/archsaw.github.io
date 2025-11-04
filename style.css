@@ -311,3 +311,41 @@ form button:hover {
     z-index: 9999;
 }
 
+/* =======================
+ *   Floating "Contact Me" Button (Left Side)
+ *   ======================= */
+.floating-contact {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  background: #1a1a1a;
+  color: var(--text-color);
+  font-weight: 700;
+  font-size: 1.2rem;
+  padding: 18px 34px;
+  border-radius: 50px;
+  border: 1px solid #333;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.floating-contact:hover {
+  background: #252525;
+  color: #fff;
+  border-color: #666;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(255, 255, 255, 0.08);
+}
+
+/* Optional subtle floating animation */
+@keyframes floatPulseLeft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.floating-contact {
+  animation: floatPulseLeft 3s ease-in-out infinite;
+}
+
