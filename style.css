@@ -258,21 +258,25 @@ form button:hover {
 }
 
 .floating-socials {
-  position: fixed;
-  bottom: 20px;           /* distance from bottom */
-  right: 20px;            /* distance from right edge */
-  background: linear-gradient(90deg, #4b6cb7, #182848);
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-  padding: 12px 22px;
-  border-radius: 50px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  z-index: 9999;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #1a1a1a;
+    color: var(--text-color);
+    font-weight: 600;
+    padding: 14px 26px;
+    border-radius: 50px;
+    border: 1px solid #333;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    z-index: 1000;
 }
 
 .floating-socials:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.5);
+    background: #252525;
+    color: #fff;
+    border-color: #555;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.05);
 }
