@@ -259,15 +259,16 @@ form button:hover {
 
 .floating-socials {
     position: fixed;
-    bottom: 25px;
-    right: 25px;
+    bottom: 30px;
+    right: 30px;
     background: #1a1a1a;
     color: var(--text-color);
-    font-weight: 600;
-    padding: 14px 26px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    padding: 18px 34px;
     border-radius: 50px;
     border: 1px solid #333;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
     text-decoration: none;
     transition: all 0.3s ease;
     z-index: 1000;
@@ -276,7 +277,17 @@ form button:hover {
 .floating-socials:hover {
     background: #252525;
     color: #fff;
-    border-color: #555;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.05);
+    border-color: #666;
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 12px 30px rgba(255, 255, 255, 0.08);
 }
+
+@keyframes floatPulse {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+.floating-socials {
+    animation: floatPulse 3s ease-in-out infinite;
+}
+
