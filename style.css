@@ -291,3 +291,23 @@ form button:hover {
     animation: floatPulse 3s ease-in-out infinite;
 }
 
+/* Fix floating button overlap issue */
+.contact-card,
+.card {
+    transform: none !important;
+}
+
+.contact-card:hover,
+.card:hover {
+    transform: none !important;
+}
+
+/* Adjust floating button position just in case */
+.floating-socials {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    pointer-events: auto;
+    z-index: 9999;
+}
+
